@@ -73,7 +73,17 @@ WSGI_APPLICATION = 'app.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
+'''
+    environment:
+      - DB_HOST=db
+      - DB_NAME=devdb
+      - DB_USER=devuser
+      - DB_PASS=changeme 
 
+      These values are written inside the docker-compose file where our environment is configuerd
+      hence in this settings.py file we are using the same VARIABLE names that are written inside the 
+      docker compose file
+'''
 DATABASES = {
     'default': {
         'ENGINE':'django.db.backends.postgresql',
@@ -84,6 +94,10 @@ DATABASES = {
     }
 }
 
+print("========== SETTINGS ==========")
+print(os.environ.get('DB_HOST'))
+print("========== SETTINGS ==========")
+print(os.environ.get('DB_USER'))
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators

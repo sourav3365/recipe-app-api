@@ -20,4 +20,4 @@ class Command(BaseCommand):
             except (Psycopg2OpError, OperationalError):
                 self.stdout.write('Database unavailable, waiting for 1 second')
                 time.sleep(1)
-        self.stdout.write(self.style.SUCCESS('Database Available!!'))        
+        self.stdout.write(self.style.SUCCESS('Database Available!!'))
